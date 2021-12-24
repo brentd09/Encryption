@@ -23,6 +23,8 @@
       Created by: Brent Denny
       Created on: 25 Dec 2021
       Versions: 
+        0.1 Could only shift by one character
+        0.2 Can shift by any number of characters
   #>
   [CmdletBinding()]
   Param (
@@ -66,6 +68,8 @@ function ConvertFrom-CaesarCipher {
       Created by: Brent Denny
       Created on: 25 Dec 2021
       Versions: 
+        0.1 Could only shift by one character
+        0.2 Can shift by any number of characters
   #>
   [CmdletBinding()]
   Param (
