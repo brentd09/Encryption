@@ -35,8 +35,8 @@
   foreach ($Char in $Chars) {
     $Ascii = [byte][char]$Char
     if ($Char -match '[a-z]') {
-      if (($Ascii -ge (123-$Shift) -and ($Ascii -le 122)) -or ($Ascii -ge (91-$Shift) -and ($Ascii -le 90))) {$Ascii = $Ascii - (26-$Shift)}
-      else {$Ascii = $Ascii + $Shift}
+      if (($Ascii -ge (123-$Shift) -and ($Ascii -le 122)) -or ($Ascii -ge (91-$Shift) -and ($Ascii -le 90))) {$Ascii = $Ascii - (26-$Shift)} # Wrapping 
+      else {$Ascii = $Ascii + $Shift} # Normal shifting, wrapping only happens if we run off the end of the alphabet
     }
     $CipherResult += [char]$Ascii
   }
@@ -78,8 +78,8 @@ function ConvertFrom-CaesarCipher {
   foreach ($Char in $Chars) {
     $Ascii = [byte][char]$Char
     if ($Char -match '[a-z]') {
-      if (($Ascii -le (96+$Shift) -and ($Ascii -ge 97)) -or ($Ascii -le (24+$Shift) -and ($Ascii -le 25))) {$Ascii = $Ascii + (26-$Shift)}
-      else {$Ascii = $Ascii - $Shift}
+      if (($Ascii -le (96+$Shift) -and ($Ascii -ge 97)) -or ($Ascii -le (24+$Shift) -and ($Ascii -le 25))) {$Ascii = $Ascii + (26-$Shift)} # Wrapping
+      else {$Ascii = $Ascii - $Shift} # Normal shifting, wrapping only happens if we run off the start of the alphabet
     }
     $TextResult += [char]$Ascii
   }
